@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReservationList from './components/ReservationList'
 import ReservationFilter from './components/ReservationFilter';
-import statusOptions from '../options/statusOptions';
-import shiftOptions from '../options/shiftOptions';
-import areaOptions from '../options/areaOptions';
+import statusOptions from './options/statusOptions';
+import shiftOptions from './options/shiftOptions';
+import areaOptions from './options/areaOptions';
 function App() {
   const { isLoading, error } = useGetReservationsQuery();
 
