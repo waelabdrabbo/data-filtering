@@ -1,10 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setStatusFilter, setShiftFilter, setAreaFilter } from "../slices/filterSlice";
+import { useGetReservationsQuery } from '../services/reservationsApi'
+
+import { setStatusFilter, setShiftFilter, setAreaFilter, setFilteredReservations } from "../slices/filterSlice";
 import Select from 'react-select'
 
 const ReservationFilter = (props) => {
+    const { data: reservations, error, isLoading } = useGetReservationsQuery();
+    const filter = useSelector((state) => state.filter);
     const dispatch = useDispatch();
-    const statusFilter = useSelector((state) => state.filter.status);
 
     const handleFilterChange = (selectedOption, { name }) => {
         const value = selectedOption.value;
@@ -22,7 +25,6 @@ const ReservationFilter = (props) => {
                 break;
         }
     };
-
     return (
         <>
             <Select onChange={(selectedOption) => handleFilterChange(selectedOption, { name: props.name })}

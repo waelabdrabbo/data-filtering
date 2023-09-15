@@ -1,0 +1,26 @@
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker-wrapper input {
+    width: 100%;
+    min-height: 38px;
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    padding: 2px 8px;
+    color: hsl(0, 0%, 20%);
+    transition: all 100ms;
+}
+
+.react-datepicker-wrapper input:hover {
+    border-color: hsl(0, 0%, 70%);
+}
+
+.react-datepicker-wrapper input:focus-visible {
+    border-color: #2684ff;
+    box-shadow: 0 0 0 1px #2684ff;
+    outline: none;
+}
