@@ -15,14 +15,14 @@ import ReservationSearch from "../components/ReservationsSearch";
 const ReservationFilterConteiner = () => {
     return (
         <>
-            <Row className="my-3">
-                <Col><ReservationFilter name="status" options={statusOptions} /></Col>
-                <Col><ReservationFilter name="shift" options={shiftOptions} /></Col>
-                <Col><ReservationFilter name="area" options={areaOptions} /></Col>
-                <Col><ReservationDate /></Col>
-                <Col><ReservationSort name="sort" /></Col>
+            <Row className="mt-3">
+                <Col md className="mb-3"><ReservationFilter name="status" options={statusOptions} /></Col>
+                <Col md className="mb-3"><ReservationFilter name="shift" options={shiftOptions} /></Col>
+                <Col md className="mb-3"><ReservationFilter name="area" options={areaOptions} /></Col>
+                <Col md className="mb-3"><ReservationDate /></Col>
+                <Col md className="mb-3"><ReservationSort name="sort" /></Col>
             </Row>
-            <Row className="my-3">
+            <Row className="mb-3">
                 <Col><ReservationSearch /></Col>
             </Row>
         </>
