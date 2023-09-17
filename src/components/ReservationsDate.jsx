@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from "react-redux";
+import { setDateRangeFilter } from "../slices/filterSlice";
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
-const ReservationDate = ({ onDateRangeChange }) => {
+/**
+ * Generates the reservation date component.
+ *
+ * @return {JSX.Element} The rendered reservation date component.
+ */
+const ReservationDate = () => {
     const [dateRange, setDateRange] = useState([null, null]);
     const [startDate, endDate] = dateRange;
+    const dispatch = useDispatch();
+    const handleDateRangeChange = (fullDate) => {
+        dispatch(setDateRangeFilter(fullDate.map((date) => (date ? date.toISOString() : null))))
+    }
     const handleDateChange = (fullDate) => {
         setDateRange(fullDate);
-        onDateRangeChange(fullDate);
+        handleDateRangeChange(fullDate);
     }
     return (
         <DatePicker

@@ -5,8 +5,6 @@ const initialState = {
     shift: '',
     area: '',
     dateRange: [null, null],
-    filteredReservations: [],
-    sortedReservations: []
 }
 
 const filterSlice = createSlice({
@@ -24,11 +22,8 @@ const filterSlice = createSlice({
         },
         setDateRangeFilter: (state, action) => {
             state.dateRange = action.payload;
-        },
-        setFilteredReservations: (state, action) => {
-            state.filteredReservations = action.payload;
         }
     }
 })
-export const { setStatusFilter, setShiftFilter, setAreaFilter, setDateRangeFilter, setFilteredReservations } = filterSlice.actions;
+export const { setStatusFilter, setShiftFilter, setAreaFilter, setDateRangeFilter } = filterSlice.actions;
 export default filterSlice.reducer

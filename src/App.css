@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto";
+    font-size: 14px;
+}
+
 .react-datepicker-wrapper {
     width: 100%;
 }
 
-.react-datepicker-wrapper input {
+.react-datepicker-wrapper input,
+.search input {
     width: 100%;
     min-height: 38px;
     border-color: hsl(0, 0%, 80%);
@@ -15,12 +23,17 @@
     transition: all 100ms;
 }
 
-.react-datepicker-wrapper input:hover {
+.react-datepicker-wrapper input:hover,
+.search input:hover {
     border-color: hsl(0, 0%, 70%);
 }
 
-.react-datepicker-wrapper input:focus-visible {
+.react-datepicker-wrapper input:focus-visible,
+.search input:focus-visible {
     border-color: #2684ff;
     box-shadow: 0 0 0 1px #2684ff;
     outline: none;
+}
+.dropdown__placeholder  {
+    text-transform: capitalize;
 }

@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useGetReservationsQuery } from '../services/reservationsApi'
-
-import { setStatusFilter, setShiftFilter, setAreaFilter, setFilteredReservations } from "../slices/filterSlice";
+import { setStatusFilter, setShiftFilter, setAreaFilter } from "../slices/filterSlice";
 import Select from 'react-select'
 
+/**
+ * Filters reservations based on the selected options.
+ *
+ * @param {object} props - The props object containing the name and options.
+ * @return {JSX.Element} The filtered reservations component.
+ */
 const ReservationFilter = (props) => {
-    const { data: reservations, error, isLoading } = useGetReservationsQuery();
     const filter = useSelector((state) => state.filter);
     const dispatch = useDispatch();
 
@@ -27,8 +30,10 @@ const ReservationFilter = (props) => {
     };
     return (
         <>
-            <Select onChange={(selectedOption) => handleFilterChange(selectedOption, { name: props.name })}
-                options={props.options} />
+            <Select
+                placeholder={props.name}
+                onChange={(selectedOption) => handleFilterChange(selectedOption, { name: props.name })}
+                options={props.options} classNamePrefix="dropdown" />
         </>
     )
 };

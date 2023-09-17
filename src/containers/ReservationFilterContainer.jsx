@@ -1,25 +1,30 @@
-import { setDateRangeFilter } from "../slices/filterSlice";
-import ReservationFilter from '../components/ReservationFilter';
-import ReservationDate from '../components/ReservationDate';
+import { Row, Col } from "react-bootstrap";
+import ReservationFilter from '../components/ReservationsFilter';
+import ReservationDate from '../components/ReservationsDate';
 import statusOptions from '../options/statusOptions';
 import shiftOptions from '../options/shiftOptions';
 import areaOptions from '../options/areaOptions';
-import { useDispatch } from "react-redux";
-import Col from 'react-bootstrap/Col';
-import ReservationSort from "../components/ReservationSort";
-const ReservationFilterConteiner = () => {
-    const dispatch = useDispatch();
-    const handleDateRangeChange = (fullDate) => {
-        dispatch(setDateRangeFilter(fullDate.map((date) => (date ? date.toISOString() : null))))
-    }
+import ReservationSort from "../components/ReservationsSort";
+import ReservationSearch from "../components/ReservationsSearch";
 
+/**
+ * Renders the ReservationFilterContainer component.
+ *
+ * @return {ReactElement} The rendered ReservationFilterContainer component.
+ */
+const ReservationFilterConteiner = () => {
     return (
         <>
-            <Col><ReservationFilter name="status" options={statusOptions} /></Col>
-            <Col><ReservationFilter name="shift" options={shiftOptions} /></Col>
-            <Col><ReservationFilter name="area" options={areaOptions} /></Col>
-            <Col><ReservationDate onDateRangeChange={handleDateRangeChange} /></Col>
-            <Col><ReservationSort /></Col>
+            <Row className="my-3">
+                <Col><ReservationFilter name="status" options={statusOptions} /></Col>
+                <Col><ReservationFilter name="shift" options={shiftOptions} /></Col>
+                <Col><ReservationFilter name="area" options={areaOptions} /></Col>
+                <Col><ReservationDate /></Col>
+                <Col><ReservationSort name="sort" /></Col>
+            </Row>
+            <Row className="my-3">
+                <Col><ReservationSearch /></Col>
+            </Row>
         </>
     )
 }
